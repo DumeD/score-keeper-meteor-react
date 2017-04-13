@@ -6,9 +6,28 @@ import { Players } from '../api/players';
 export default class AddPlayer extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
+
     let playerName = e.target.playerName.value;
 
-    if(playerName) {
+    let players = Players.find().fetch();
+
+    let nameDoesExist = false;
+
+    let names = players.map((p) => {
+
+      p.name = p.name.toLowerCase();
+
+      playerName = playerName.toLowerCase();
+
+      if(playerName === p.name) {
+        alert('Player already exists.');
+        e.target.playerName.value = '';
+        nameDoesExist = true;
+        return;
+      }
+    });
+
+    if(playerName && !nameDoesExist) {
       e.target.playerName.value = '';
 
       Players.insert({
