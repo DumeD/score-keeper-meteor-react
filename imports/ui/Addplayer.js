@@ -13,8 +13,7 @@ export default class AddPlayer extends React.Component {
 
     let nameDoesExist = false;
 
-    let names = players.map((p) => {
-
+    let names = players.find((p) => {
       p.name = p.name.toLowerCase();
 
       playerName = playerName.toLowerCase();
@@ -27,6 +26,7 @@ export default class AddPlayer extends React.Component {
       }
     });
 
+
     if(playerName && !nameDoesExist) {
       e.target.playerName.value = '';
 
@@ -35,6 +35,7 @@ export default class AddPlayer extends React.Component {
         score: 0
       });
     }
+
   }
   render() {
     return (
