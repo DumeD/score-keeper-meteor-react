@@ -1,0 +1,14 @@
+.title-bar {
+  background-color: $green-topbar;
+  color: white;
+
+  h1 {
+    font-weight: 300;
+    font-size: 2.4rem;
+  }
+}
+
+.title-bar__subtitle {
+  font-size: 1.3rem;
+  font-weight: 400px;
+}
