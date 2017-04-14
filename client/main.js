@@ -14,8 +14,9 @@ Meteor.startup(() => {
     let players = Players.find({}, { sort: { score: -1 } }).fetch();
     let positionedPlayers = calculatePlayerPositions(players);
     let title = 'Score Keeper';
+    let subtitle = 'Created by David Dume';
 
-    ReactDOM.render(<App title={title} players={positionedPlayers} />, document.getElementById('app'));
+    ReactDOM.render(<App title={title} players={positionedPlayers} subtitle={subtitle}/>, document.getElementById('app'));
   });
 
 
